@@ -18,8 +18,12 @@ The run_analysis.R does the following.
 
 4. Appropriately labels the data set with descriptive variable names.
 
-  Variable names of the data set are V1,V2... when they are read from the files. We use names() method along with features data read from 'features.txt' to set variable names. Furthermore, based on 'features_info.txt', we can parse the abbreviated name into full descriptive variable name
+  Variable names of the data set are V1,V2... when they are read from the files. We use names() method along with features data read from 'features.txt' to set variable names.
 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
   In order to calculate the average of each variable for each activity and each subject, we group the data set by subject and activity, then calculate the mean for each group. Finally, we export the dataset to 'summarized-data.txt' using write.table()
+
+6. Generate variable explaination for code book
+
+  Based on information provided by 'features_info.txt', we can parse the abbreviated variable names into full descriptive variable names. 
