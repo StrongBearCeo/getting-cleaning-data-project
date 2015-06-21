@@ -39,5 +39,11 @@ names(merged.data)<-gsub("Body", "Body ", names(merged.data))
 names(merged.data)<-gsub("Jerk", "Jerk ", names(merged.data))
 names(merged.data)<-gsub("Gravity", "Gravity ", names(merged.data))
 
+# creates a second, independent tidy data set 
+# with the average of each variable 
+# for each activity and each subject.
+summarized.data <- merged.data %>% group_by(Subject, Activity) %>% summarise_each(funs(mean))
+names(summarized.data)[-(1:2)] <- paste("average", names(summarized.data)[-(1:2)])
+
 # Export to file
-write.table(merged.data, file = 'merged-data.txt', row.name=FALSE)
+write.table(summarized.data, file = 'summarized-data.txt', row.name=FALSE)
